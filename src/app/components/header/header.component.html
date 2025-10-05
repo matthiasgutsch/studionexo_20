@@ -1,0 +1,67 @@
+<div class="header" [ngClass]="classes">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" routerLink="/">NEXO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link">Servizi <i class="pi pi-chevron-down"></i></a>
+                <ul class="dropdown-content">
+                  <li class=" nav-item">
+                    <a class="nav-link" routerLink="/branding">Branding</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" routerLink="/ux-design">UX/UI Design</a>
+                  </li>
+                  <li class=" nav-item">
+                    <a class="nav-link" routerLink="/technology">Development</a>
+                  </li>
+                  <li class=" nav-item">
+                    <a class="nav-link" routerLink="/technology">Technology</a>
+                  </li>
+
+                  <li class=" nav-item">
+                    <a class="nav-link" routerLink="/webdesign">WebDesign</a>
+                  </li>
+                </ul>
+              </li>
+
+
+
+
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/works">Progetti</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/about">Chi siamo</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/contact">Contatti</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" [ngClass]="classes" routerLink="/contact"
+                type="submit">Richiedi
+                informazioni</a>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-overlay-menu></app-overlay-menu>

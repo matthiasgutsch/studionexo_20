@@ -1,0 +1,120 @@
+<section class="home-hero-section fixed-header white" *ngIf="element">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-12 col-md-12 offset-md-0">
+        <div class="row">
+
+          <div class="col-12 col-sm-6 text-left pb-0">
+
+            <p><i class="pi pi-chevron-left"></i></p>
+
+            <h1 class="mt-0 pt-0 pb-20">
+              {{element.seo_title}}
+            </h1>
+          </div>
+
+          <div class="col-12 col-sm-5 offset-sm-1 text-left pb-40">
+
+
+            <p class="pb pt-10">
+              {{element.description}}
+
+            </p>
+            <a class="btn btn-outline-success-black my-2 my-sm-0" routerLink="/contact" type="submit">Richiedi
+              informazioni</a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="marquee-section light white">
+  <div class="marquee-both-direction">
+    <div class="marquee">
+      <div class="marquee__inner" aria-hidden="true">
+        <div *ngIf="loading" class="ghost-marquee">
+          <div class="ghost-item" *ngFor="let i of [].constructor(5); let index = index">
+            <div class="image"></div>
+          </div>
+        </div>
+
+        <div *ngFor="let option of optionsList; let i = index">
+          <div class="startup-item-marquee-small">
+            <div class="image">
+              <ng-lottie [styles]="{ width: '500px' }" [options]="option"></ng-lottie>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="landing-hero-section light white">
+  <div class="container">
+
+    <div class="row mt-60 mb-60">
+      <div class="col-12 col-md-10 offset-md-1">
+        <div class="row">
+
+          <div class="col-12 col-md-4 text-left">
+            <h2>Realizziamo progetti digitali</h2>
+
+          </div>
+          <div class="col-12 col-md-7 offset-md-1 text-left">
+
+            <p class="pb-20">
+              Supportiamo le aziende nel massimizzare il loro potenziale grazie a strategie digitali innovative. Creiamo
+              valore per i brand attraverso design strategici, generiamo lead e conversioni mediante campagne di
+              marketing sui social e demand generation. Inoltre, incrementiamo le vendite con soluzioni omnichannel,
+              integrando tecnologia all’avanguardia e intelligenza artificiale generativa per ottimizzare le
+              performance.
+
+              <br><br>
+
+
+              Progettiamo e sviluppiamo soluzioni tecnologiche avanzate per digitalizzare e automatizzare i vostri
+              processi aziendali, migliorando efficienza operativa, produttività e competitività nel mercato digitale.
+
+
+
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <img src="../../../assets/images/pexels-photo-2451566.jpg" class="img-fluid mb-60">
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-12 col-md-10 offset-md-1">
+
+        <p> La rivoluzione digitale offre infinite opportunità, ma il successo di un prodotto dipende dalle scelte
+          giuste: cosa sviluppare, come progettarlo e quali tecnologie adottare?<br><br>
+
+          Noi di Studio Nexo ti aiutiamo a trovare le risposte con soluzioni di UX & UI Design, sviluppo full-stack,
+          marketing digitale, SEO, e-commerce e pubblicità online. Analizziamo la tua realtà e personalizziamo ogni
+          strumento per valorizzare ciò che rende unica la tua attività.
+
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
