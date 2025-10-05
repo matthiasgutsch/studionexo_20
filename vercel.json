@@ -1,11 +1,25 @@
 {
   "version": 2,
-  "public": true,
   "name": "studionexo_20",
-  "rewrites": [
+  "public": true,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "dist/studionexo_20/server/main.server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/studionexo_20/browser/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/studionexo_20/server/main.server.mjs"
     }
   ],
   "functions": {
