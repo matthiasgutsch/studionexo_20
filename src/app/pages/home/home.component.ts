@@ -41,31 +41,29 @@ export class HomeComponent implements OnInit {
       this.pagesService.get_slug('home').subscribe((item) => {
         this.element = item;
 
-        if (isPlatformBrowser(this.platformId)) {
-          this.animationPaths = [
-            '../json/project1.json',
-            '../json/lotti2.json',
-            '../json/lotti.json',
-            '../json/logo2.json',
-            '../json/lotti.json',
-          ];
+        this.animationPaths = [
+          '../json/project1.json',
+          '../json/lotti2.json',
+          '../json/lotti.json',
+          '../json/logo2.json',
+          '../json/lotti.json',
+        ];
 
-          const preloadPromises = this.animationPaths.map((path) =>
-            this.http.get(path).toPromise()
-          );
+        const preloadPromises = this.animationPaths.map((path) =>
+          this.http.get(path).toPromise()
+        );
 
-          Promise.all(preloadPromises)
-            .then((responses) => {
-              this.optionsList = responses.map((data) => ({
-                animationData: data,
-              }));
-              this.loading = false;
-            })
-            .catch((error) => {
-              console.error('Error preloading animations:', error);
-              this.loading = false;
-            });
-        }
+        Promise.all(preloadPromises)
+          .then((responses) => {
+            this.optionsList = responses.map((data) => ({
+              animationData: data,
+            }));
+            this.loading = false;
+          })
+          .catch((error) => {
+            console.error('Error preloading animations:', error);
+            this.loading = false;
+          });
 
         this.titleService.setTitle(
           'Digital Studio - ' + (this.element?.seo_title ?? '')
