@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit, PLATFORM_ID, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from '../../app.component';
-import { ComuniService } from '../../services/api/comuni.service';
 import { CategoryService } from '../../services/api/categories.service';
 import { CanonicalService } from '../../services/api/canonical.service';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
@@ -12,7 +11,7 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
   selector: 'app-category',
   templateUrl: './category.component.html',
   standalone: true,
-  imports: [CommonModule, RouterLink, LottieComponent],
+  imports: [CommonModule, LottieComponent],
 })
 export class CategoryComponent implements OnInit {
   loading: boolean = false;
