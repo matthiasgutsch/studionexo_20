@@ -10,10 +10,9 @@ import { AppComponent } from '../../app.component';
 import { Pages } from '../../models/pages';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  standalone: true,
-  imports: [CommonModule, RouterLink, LottieComponent],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    imports: [CommonModule, RouterLink, LottieComponent]
 })
 export class HomeComponent implements OnInit {
   loading = true;

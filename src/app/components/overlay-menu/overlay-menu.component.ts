@@ -17,31 +17,24 @@ import {
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-overlay-menu',
-  templateUrl: './overlay-menu.component.html',
-  styleUrls: ['./overlay-menu.component.css'],
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  animations: [
-    trigger('slideInOut', [
-      state(
-        'in',
-        style({
-          transform: 'translateX(0)',
-          opacity: 1,
-        })
-      ),
-      state(
-        'out',
-        style({
-          transform: 'translateX(-100%)',
-          opacity: 1,
-        })
-      ),
-      transition('in => out', animate('200ms ease-out')),
-      transition('out => in', animate('200ms ease-in')),
-    ]),
-  ],
+    selector: 'app-overlay-menu',
+    templateUrl: './overlay-menu.component.html',
+    styleUrls: ['./overlay-menu.component.css'],
+    imports: [CommonModule, RouterModule],
+    animations: [
+        trigger('slideInOut', [
+            state('in', style({
+                transform: 'translateX(0)',
+                opacity: 1,
+            })),
+            state('out', style({
+                transform: 'translateX(-100%)',
+                opacity: 1,
+            })),
+            transition('in => out', animate('200ms ease-out')),
+            transition('out => in', animate('200ms ease-in')),
+        ]),
+    ]
 })
 export class OverlayMenuComponent implements OnInit {
   public menuState: 'in' | 'out' = 'out';

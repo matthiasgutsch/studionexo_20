@@ -2,10 +2,9 @@ import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-  selector: 'cookie-consent-component',
-  standalone: true,
-  imports: [],
-  templateUrl: './cookie.component.html',
+    selector: 'cookie-consent-component',
+    imports: [],
+    templateUrl: './cookie.component.html'
 })
 export class CookieConsentComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
