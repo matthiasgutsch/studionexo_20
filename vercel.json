@@ -3,7 +3,7 @@
   "name": "studionexo_20",
   "public": true,
   "functions": {
-    "api/index.mjs": {
+    "api/index.js": {
       "runtime": "@vercel/node@3.0.0",
       "includeFiles": "dist/studionexo_20/**"
     }
@@ -11,7 +11,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.mjs"
+      "dest": "/api/index.js"
     },
     {
       "src": "/assets/(.*)",
@@ -19,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.mjs"
+      "dest": "/api/index.js"
     }
   ]
 }
