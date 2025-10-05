@@ -31,15 +31,12 @@ export class CategoryComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
-    private comuniService: ComuniService,
-    private router: Router,
     private canonicalService: CanonicalService,
     private metaService: Meta,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: object
   ) {
     categoryService = inject(CategoryService);
-    comuniService = inject(ComuniService);
   }
 
   ngOnInit(): void {
@@ -56,41 +53,37 @@ export class CategoryComponent implements OnInit {
 
         this.element = item;
 
-        if (isPlatformBrowser(this.platformId)) {
-          this.tagsArray = this.element.tags
-            ? this.element.tags.split(',')
-            : [];
+        this.tagsArray = this.element.tags ? this.element.tags.split(',') : [];
 
-          this.cleanDescription_1 = this.element.description_1
-            ? this.element.description_1.replace(/<\/?p>/g, '')
-            : '';
+        this.cleanDescription_1 = this.element.description_1
+          ? this.element.description_1.replace(/<\/?p>/g, '')
+          : '';
 
-          this.titleService.setTitle(this.element.seo_title || '');
-          this.metaService.updateTag({
-            name: 'description',
-            content: this.cleanDescription_1,
-          });
+        this.titleService.setTitle(this.element.seo_title || '');
+        this.metaService.updateTag({
+          name: 'description',
+          content: this.cleanDescription_1,
+        });
 
-          this.metaService.updateTag({
-            property: 'og:title',
-            content: this.element.seo_title || '',
-          });
+        this.metaService.updateTag({
+          property: 'og:title',
+          content: this.element.seo_title || '',
+        });
 
-          this.metaService.updateTag({
-            property: 'og:description',
-            content: this.cleanDescription_1,
-          });
+        this.metaService.updateTag({
+          property: 'og:description',
+          content: this.cleanDescription_1,
+        });
 
-          this.options_top = {
-            path: '/assets/json/' + (this.element.slug || '') + '_top.json',
-          };
+        this.options_top = {
+          path: '/assets/json/' + (this.element.slug || '') + '_top.json',
+        };
 
-          this.options = {
-            path: '/assets/json/' + (this.element.slug || '') + '.json',
-          };
+        this.options = {
+          path: '/assets/json/' + (this.element.slug || '') + '.json',
+        };
 
-          this.canonicalService.setCanonicalURL();
-        }
+        this.canonicalService.setCanonicalURL();
       });
     });
   }
