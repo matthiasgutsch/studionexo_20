@@ -1,16 +1,25 @@
 {
   "version": 2,
-  "public": true,
   "name": "studionexo_20",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api"
-    }
-  ],
+  "public": true,
   "functions": {
-    "api/index.js": {
+    "api/index.mjs": {
+      "runtime": "@vercel/node@3.0.0",
       "includeFiles": "dist/studionexo_20/**"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.mjs"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/studionexo_20/browser/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.mjs"
+    }
+  ]
 }
