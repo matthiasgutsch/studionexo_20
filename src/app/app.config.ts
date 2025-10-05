@@ -7,6 +7,7 @@ import {
 } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideLottieOptions } from 'ngx-lottie';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +15,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideAnimations(),
+    provideLottieOptions({
+      player: () => import('lottie-web'),
+    }),
     provideClientHydration(
       withHttpTransferCacheOptions({ includeHeaders: ['cookie'] })
     ),

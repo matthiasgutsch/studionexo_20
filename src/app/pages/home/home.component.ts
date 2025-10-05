@@ -10,9 +10,10 @@ import { AppComponent } from '../../app.component';
 import { Pages } from '../../models/pages';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    imports: [CommonModule, RouterLink, LottieComponent]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  standalone: true,
+  imports: [CommonModule, RouterLink, LottieComponent],
 })
 export class HomeComponent implements OnInit {
   loading = true;
@@ -42,11 +43,11 @@ export class HomeComponent implements OnInit {
 
         if (isPlatformBrowser(this.platformId)) {
           this.animationPaths = [
-            '/assets/json/project1.json',
-            '/assets/json/lotti2.json',
-            '/assets/json/lotti.json',
-            '/assets/json/logo2.json',
-            '/assets/json/lotti.json',
+            '../json/project1.json',
+            '../json/lotti2.json',
+            '../json/lotti.json',
+            '../json/logo2.json',
+            '../json/lotti.json',
           ];
 
           const preloadPromises = this.animationPaths.map((path) =>
