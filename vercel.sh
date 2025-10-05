@@ -1,4 +1,4 @@
-
+#!/bin/bash
 if [[ $VERCEL_GIT_COMMIT_REF == "main" ]]; then
   echo "This is our production branch"
   npm run build:ssr

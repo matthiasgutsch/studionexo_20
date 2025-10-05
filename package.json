@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && ng run studionexo_20:server",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:ssr": "ng build --configuration production && ng run studionexo_20:server:production",
-    "build:staging-ssr": "ng build --configuration staging && ng run studionexo_20:server:staging",
+    "build:ssr": "ng build --configuration production --ssr",
+    "build:staging-ssr": "ng build --configuration staging --ssr",
     "serve:ssr": "node dist/studionexo_20/server/main.server.mjs"
   },
   "private": true,
