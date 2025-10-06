@@ -2,7 +2,7 @@
   "version": 2,
   "name": "studionexo_20",
   "public": true,
-  "buildCommand": "npm ci && ng build --configuration production --ssr",
+  "buildCommand": "npm ci && npm run build:ssr",
   "functions": {
     "api/index.js": {
       "runtime": "@vercel/node@3.0.0",
