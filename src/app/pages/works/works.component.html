@@ -1,0 +1,56 @@
+<section class="home-hero-section fixed-header white pb-0">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-12 col-md-8 offset-md-0" *ngIf="element">
+        <div class="row">
+
+          <div class="col-12 col-md-12 col-offset-md-1 text-left pb-80">
+
+            <p><i class="pi pi-chevron-left"></i></p>
+
+            <h1 class="mt-0 pt-0 pb-20">
+              {{element.seo_title}}
+            </h1>
+
+            <p class="pb">
+              {{element.description}}
+
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 pull-right pb-40">
+        <div class="image">
+          <ng-lottie [options]="optionsLogo" class="img-fluid border-radius"></ng-lottie>
+        </div>
+
+      </div>
+      <div class="col-12 col-md-6 pull-right pb-40">
+        <div class="image">
+          <ng-lottie [options]="options" class="img-fluid border-radius"></ng-lottie>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 col-md-12 pb-100">
+        <div class="image">
+          <ng-lottie [options]="optionsMain" class="img-fluid border-radius"></ng-lottie>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
