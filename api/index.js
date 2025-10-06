@@ -1,4 +1,7 @@
-export default async function handler(req, res) {
-  const { app } = await import('../dist/studionexo_20/server/main.server.mjs');
-  return app()(req, res);
-}
+import * as server from '../dist/studionexo_20/server/main.server.mjs';
+
+
+const appExport = server.app ?? server.default ?? server;
+const handler = typeof appExport === 'function' ? appExport() : appExport;
+
+export default handler;
