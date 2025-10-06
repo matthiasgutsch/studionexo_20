@@ -26,7 +26,7 @@
     "@angular/platform-server": "^20.3.3",
     "@angular/router": "^20.3.3",
     "@lottiefiles/lottie-player": "^2.0.12",
-    "@ng-bootstrap/ng-bootstrap": "18.0.0",
+    "@ng-bootstrap/ng-bootstrap": "19.0.0",
     "lottie-web": "^5.12.2",
     "vanilla-cookieconsent": "^3.0.0",
     "ngx-lottie": "^12.0.0",
