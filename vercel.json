@@ -1,26 +1,16 @@
 {
   "version": 2,
-  "name": "studionexo_20",
   "public": true,
-  "buildCommand": "npm ci && npm run build:ssr",
+  "name": "angular-ssr-vercel",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ],
   "functions": {
     "api/index.js": {
-      "runtime": "@vercel/node@4.0.0",
-      "includeFiles": "dist/studionexo_20/**"
+      "includeFiles": "dist/angular-ssr-vercel/**"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/index.js"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/dist/studionexo_20/browser/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.js"
-    }
-  ]
+  }
 }
