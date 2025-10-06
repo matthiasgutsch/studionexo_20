@@ -75,11 +75,11 @@ export class CategoryComponent implements OnInit {
         });
 
         this.options_top = {
-          path: '/assets/json/' + (this.element.slug || '') + '_top.json',
+          path: '../json/' + (this.element.slug || '') + '_top.json',
         };
 
         this.options = {
-          path: '/assets/json/' + (this.element.slug || '') + '.json',
+          path: '../json/' + (this.element.slug || '') + '.json',
         };
 
         this.canonicalService.setCanonicalURL();
@@ -88,6 +88,6 @@ export class CategoryComponent implements OnInit {
   }
 
   options_logo: AnimationOptions = {
-    path: '/assets/json/logo.json',
+    path: '../json/logo.json',
   };
 }
