@@ -11,6 +11,9 @@
     "build:staging-ssr": "ng build --configuration staging --ssr",
     "serve:ssr": "node dist/studionexo_20/server/main.server.mjs"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.15",
