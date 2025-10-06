@@ -2,15 +2,17 @@
   "version": 2,
   "public": true,
   "name": "studionexo_20",
+  "buildCommand": "sh vercel.sh",
+  "functions": {
+    "api/index.js": {
+      "runtime": "@vercel/node@3.0.0",
+      "includeFiles": "dist/studionexo_20/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/api"
     }
-  ],
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "dist/studionexo_20/**"
-    }
-  }
+  ]
 }
