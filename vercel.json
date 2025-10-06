@@ -4,15 +4,15 @@
   "public": true,
   "buildCommand": "npm ci && npm run build:ssr",
   "functions": {
-    "api/index.js": {
-      "runtime": "@vercel/node@4.0.0",
+    "api/index.mjs": {
+      "runtime": "@vercel/node@3.0.0",
       "includeFiles": "dist/studionexo_20/**"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.js"
+      "dest": "/api/index.mjs"
     },
     {
       "src": "/assets/(.*)",
@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.js"
+      "dest": "/api/index.mjs"
     }
   ]
 }
