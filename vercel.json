@@ -2,6 +2,7 @@
   "version": 2,
   "name": "studionexo_20",
   "public": true,
+  "nodeVersion": "22.x",
   "buildCommand": "sh vercel.sh",
   "functions": {
     "api/index.js": {
