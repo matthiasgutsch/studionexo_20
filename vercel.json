@@ -2,7 +2,7 @@
   "version": 2,
   "public": true,
   "name": "studionexo_20",
-  "buildCommand": "sh ./vercel.sh",
+  "buildCommand": "npm ci && ./vercel.sh",
   "functions": {
     "api/index.js": {
       "runtime": "@vercel/node@3.0.0",
