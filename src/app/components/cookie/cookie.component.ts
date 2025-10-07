@@ -2,9 +2,9 @@ import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
-    selector: 'cookie-consent-component',
-    imports: [],
-    templateUrl: './cookie.component.html'
+  selector: 'cookie-consent-component',
+  imports: [],
+  templateUrl: './cookie.component.html',
 })
 export class CookieConsentComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
@@ -12,8 +12,6 @@ export class CookieConsentComponent implements AfterViewInit {
   async ngAfterViewInit(): Promise<void> {
     if (isPlatformBrowser(this.platformId)) {
       const hostname = window.location.hostname;
-
-      // 👇 Importa solo lato browser
       const { run } = await import('vanilla-cookieconsent');
 
       run({
@@ -27,83 +25,98 @@ export class CookieConsentComponent implements AfterViewInit {
           console.log('onChange fired!', changedCategories, changedServices);
         },
         onModalReady: ({ modalName }) => {
-          console.log('ready:', modalName);
+          console.log('Modal ready:', modalName);
         },
         onModalShow: ({ modalName }) => {
-          console.log('visible:', modalName);
+          console.log('Modal visible:', modalName);
         },
         onModalHide: ({ modalName }) => {
-          console.log('hidden:', modalName);
+          console.log('Modal hidden:', modalName);
         },
 
         categories: {
-          necessary: { enabled: true, readOnly: true },
+          necessary: {
+            enabled: true,
+            readOnly: true,
+          },
           analytics: {
             autoClear: {
               cookies: [{ name: /^_ga/ }, { name: '_gid' }],
             },
             services: {
-              ga: {
-                label: 'Google Analytics (dummy)',
-                onAccept: () => {},
-                onReject: () => {},
-              },
-              youtube: {
-                label: 'Youtube Embed (dummy)',
-                onAccept: () => {},
-                onReject: () => {},
+              googleAnalytics: {
+                label: 'Google Analytics',
+                onAccept: () => {
+                  console.log('Analytics cookies accepted');
+                },
+                onReject: () => {
+                  console.log('Analytics cookies rejected');
+                },
               },
             },
           },
-          ads: {},
         },
 
         language: {
-          default: 'it',
+          default: 'en',
           translations: {
-            it: {
+            en: {
               consentModal: {
-                title: 'Questo sito web utilizza i cookie',
-                description:
-                  'Questo sito web utilizza i cookie per migliorare la tua esperienza di navigazione. Utilizzando il nostro sito web acconsenti a tutti i cookie in conformità con la nostra policy.',
-                acceptAllBtn: 'Accetta tutti',
-                acceptNecessaryBtn: 'Rifiuta',
-                showPreferencesBtn: 'Gestisci i cookie',
+                title: 'We use cookies',
+                description: `
+                  This website uses cookies to collect anonymized usage statistics 
+                  so that we can improve the overall user experience.
+                  If you want to know more or change your preferences, 
+                  please read our 
+                  <a href="/cookie-policy" target="_blank">Cookie Policy</a> 
+                  and 
+                  <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+                  By clicking "Accept" you are giving consent to the use of cookies.
+                `,
+                acceptAllBtn: 'Accept',
+                acceptNecessaryBtn: 'Reject',
+                showPreferencesBtn: 'Manage preferences',
                 footer: `
-                  <a href="/contact" target="_blank">Impressum</a>
-                  <a href="/contact" target="_blank">Privacy Policy</a>
+                  <a href="/cookie-policy" target="_blank">Cookie Policy</a>
+                  <a href="/privacy-policy" target="_blank">Privacy Policy</a>
                 `,
               },
               preferencesModal: {
                 title: 'Manage cookie preferences',
                 acceptAllBtn: 'Accept all',
                 acceptNecessaryBtn: 'Reject all',
-                savePreferencesBtn: 'Accept current selection',
+                savePreferencesBtn: 'Save current selection',
                 closeIconLabel: 'Close modal',
                 serviceCounterLabel: 'Service|Services',
                 sections: [
                   {
-                    title: 'Performance and Analytics',
+                    title: 'Strictly necessary cookies',
                     description:
-                      'These cookies collect information about how you use our website. Tutti i dati sono anonimizzati.',
+                      'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+                    linkedCategory: 'necessary',
+                  },
+                  {
+                    title: 'Performance and analytics cookies',
+                    description:
+                      'These cookies help us understand how users interact with our site by collecting and reporting information anonymously.',
                     linkedCategory: 'analytics',
                     cookieTable: {
-                      caption: 'Cookie table',
+                      caption: 'Cookie list',
                       headers: {
-                        name: 'Cookie',
+                        name: 'Name',
                         domain: 'Domain',
-                        desc: 'Description',
+                        desc: 'Purpose',
                       },
                       body: [
                         {
                           name: '_ga',
                           domain: hostname,
-                          desc: 'Description 1',
+                          desc: 'Used to distinguish users for Google Analytics.',
                         },
                         {
                           name: '_gid',
                           domain: hostname,
-                          desc: 'Description 2',
+                          desc: 'Used to distinguish users for Google Analytics (short-term).',
                         },
                       ],
                     },
