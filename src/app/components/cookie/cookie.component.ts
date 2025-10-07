@@ -25,13 +25,13 @@ export class CookieConsentComponent implements AfterViewInit {
           console.log('onChange fired!', changedCategories, changedServices);
         },
         onModalReady: ({ modalName }) => {
-          console.log('Modal ready:', modalName);
+          console.log('Modal pronta:', modalName);
         },
         onModalShow: ({ modalName }) => {
-          console.log('Modal visible:', modalName);
+          console.log('Modal visibile:', modalName);
         },
         onModalHide: ({ modalName }) => {
-          console.log('Modal hidden:', modalName);
+          console.log('Modal nascosta:', modalName);
         },
 
         categories: {
@@ -47,10 +47,10 @@ export class CookieConsentComponent implements AfterViewInit {
               googleAnalytics: {
                 label: 'Google Analytics',
                 onAccept: () => {
-                  console.log('Analytics cookies accepted');
+                  console.log('Cookie analitici accettati');
                 },
                 onReject: () => {
-                  console.log('Analytics cookies rejected');
+                  console.log('Cookie analitici rifiutati');
                 },
               },
             },
@@ -58,65 +58,65 @@ export class CookieConsentComponent implements AfterViewInit {
         },
 
         language: {
-          default: 'en',
+          default: 'it',
           translations: {
-            en: {
+            it: {
               consentModal: {
-                title: 'We use cookies',
+                title: 'Questo sito utilizza i cookie',
                 description: `
-                  This website uses cookies to collect anonymized usage statistics 
-                  so that we can improve the overall user experience.
-                  If you want to know more or change your preferences, 
-                  please read our 
+                  Questo sito utilizza cookie per raccogliere statistiche d’uso in forma anonima,
+                  al fine di migliorare l’esperienza complessiva dell’utente.
+                  Se vuoi saperne di più o modificare le tue preferenze,
+                  leggi la nostra 
                   <a href="/cookie-policy" target="_blank">Cookie Policy</a> 
-                  and 
+                  e la nostra 
                   <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
-                  By clicking "Accept" you are giving consent to the use of cookies.
+                  Cliccando su "Accetta" presti il consenso all’utilizzo dei cookie.
                 `,
-                acceptAllBtn: 'Accept',
-                acceptNecessaryBtn: 'Reject',
-                showPreferencesBtn: 'Manage preferences',
+                acceptAllBtn: 'Accetta',
+                acceptNecessaryBtn: 'Rifiuta',
+                showPreferencesBtn: 'Gestisci preferenze',
                 footer: `
                   <a href="/cookie-policy" target="_blank">Cookie Policy</a>
                   <a href="/privacy-policy" target="_blank">Privacy Policy</a>
                 `,
               },
               preferencesModal: {
-                title: 'Manage cookie preferences',
-                acceptAllBtn: 'Accept all',
-                acceptNecessaryBtn: 'Reject all',
-                savePreferencesBtn: 'Save current selection',
-                closeIconLabel: 'Close modal',
-                serviceCounterLabel: 'Service|Services',
+                title: 'Gestisci le preferenze sui cookie',
+                acceptAllBtn: 'Accetta tutti',
+                acceptNecessaryBtn: 'Rifiuta tutti',
+                savePreferencesBtn: 'Salva selezione attuale',
+                closeIconLabel: 'Chiudi la finestra',
+                serviceCounterLabel: 'Servizio|Servizi',
                 sections: [
                   {
-                    title: 'Strictly necessary cookies',
+                    title: 'Cookie strettamente necessari',
                     description:
-                      'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+                      'Questi cookie sono essenziali per il corretto funzionamento del sito web e non possono essere disattivati.',
                     linkedCategory: 'necessary',
                   },
                   {
-                    title: 'Performance and analytics cookies',
+                    title: 'Cookie di prestazione e analisi',
                     description:
-                      'These cookies help us understand how users interact with our site by collecting and reporting information anonymously.',
+                      'Questi cookie ci aiutano a capire come gli utenti interagiscono con il sito raccogliendo e segnalando informazioni in forma anonima.',
                     linkedCategory: 'analytics',
                     cookieTable: {
-                      caption: 'Cookie list',
+                      caption: 'Elenco dei cookie',
                       headers: {
-                        name: 'Name',
-                        domain: 'Domain',
-                        desc: 'Purpose',
+                        name: 'Nome',
+                        domain: 'Dominio',
+                        desc: 'Scopo',
                       },
                       body: [
                         {
                           name: '_ga',
                           domain: hostname,
-                          desc: 'Used to distinguish users for Google Analytics.',
+                          desc: 'Utilizzato per distinguere gli utenti ai fini delle statistiche di Google Analytics.',
                         },
                         {
                           name: '_gid',
                           domain: hostname,
-                          desc: 'Used to distinguish users for Google Analytics (short-term).',
+                          desc: 'Utilizzato per distinguere gli utenti (durata breve) per Google Analytics.',
                         },
                       ],
                     },
