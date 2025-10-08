@@ -172,6 +172,9 @@ export class DetailComponent implements OnInit {
       description3: replacePlaceholders(this.category.replace_description_3),
       title: replacePlaceholders(this.category.replace_title),
       replace_seo_title: replacePlaceholders(this.category.replace_seo_title),
+      replace_seo_description: replacePlaceholders(
+        this.category.replace_seo_description
+      ),
     };
 
     // Sanitize the dynamically generated HTML
@@ -201,7 +204,7 @@ export class DetailComponent implements OnInit {
     });
     this.metaService.updateTag({
       name: 'description',
-      content: replacedTemplates.description2?.slice(0, 160),
+      content: replacedTemplates.replace_seo_description?.slice(0, 160),
     });
     this.metaService.updateTag({
       property: 'og:description',
