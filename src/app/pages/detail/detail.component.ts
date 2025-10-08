@@ -201,7 +201,7 @@ export class DetailComponent implements OnInit {
     });
     this.metaService.updateTag({
       name: 'description',
-      content: replacedTemplates.description2,
+      content: replacedTemplates.description2?.slice(0, 160),
     });
     this.metaService.updateTag({
       property: 'og:description',
